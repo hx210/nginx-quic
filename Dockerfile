@@ -75,6 +75,11 @@ RUN cd /src/freenginx && \
     --with-openssl="/src/openssl" \
     --with-mail \
     --with-mail_ssl_module \
+    --with-ld-opt="-L/src/openssl/build/lib" \
+    --with-cc-opt="-I/src/openssl/build/include" \
+    --with-openssl-opt=no-weak-ssl-ciphers \
+    --with-openssl-opt=no-ssl2 \    
+    --with-openssl-opt=no-ssl3 \    
     --with-stream \
     --with-stream_ssl_module \
     --with-stream_ssl_preread_module \
