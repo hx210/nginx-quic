@@ -1,18 +1,8 @@
 name: Build Docker Image
 on:
-#  schedule:
-#    - cron: "0 0 */6 * *"
-  push:
-    branches:
-      - latest
-      - develop
-    paths:
-      - Dockerfile
-      - .github/workflows/docker.yml
-  pull_request:
-    paths:
-      - Dockerfile
-      - .github/workflows/docker.yml
+  #  schedule:
+  #    - cron: "0 0 */6 * *"
+
   workflow_dispatch:
 jobs:
   build:
