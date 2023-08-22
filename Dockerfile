@@ -3,7 +3,7 @@ ARG BUILD
 
 ARG LUAJIT_INC=/usr/include/luajit-2.1
 ARG LUAJIT_LIB=/usr/lib
-ARG NGINX_VER=1.25.1
+ARG NGINX_VER=1.25.2
 
 WORKDIR /src
 # Requirements
@@ -23,7 +23,7 @@ RUN wget https://nginx.org/download/nginx-"$NGINX_VER".tar.gz -O - | tar xzC /sr
     git clone --recursive https://github.com/openresty/lua-nginx-module /src/lua-nginx-module && \
     git clone --recursive https://github.com/openresty/lua-resty-core /src/lua-resty-core && \
     git clone --recursive https://github.com/openresty/lua-resty-lrucache /src/lua-resty-lrucache && \
-    git clone --recursive https://github.com/quictls/openssl --branch openssl-3.1.0+quic+locks /src/openssl
+    git clone --recursive https://github.com/quictls/openssl --branch openssl-3.1.2+quic /src/openssl
 
 # Configure
 RUN cd /src/nginx && \
