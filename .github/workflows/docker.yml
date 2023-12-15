@@ -68,7 +68,7 @@ jobs:
           docker cp nginx-aarch64:/usr/local/nginx nginx
           tar -cJf nginx-aarch64.tar.xz nginx
           rm -r nginx
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ github.event_name != 'pull_request' }}
         with:
           name: artifacts
@@ -120,7 +120,7 @@ jobs:
           docker cp nginx-aarch64:/usr/local/nginx nginx
           tar -cJf nginx-aarch64.tar.xz nginx
           rm -r nginx
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ github.event_name == 'pull_request' }}
         with:
           name: artifacts
