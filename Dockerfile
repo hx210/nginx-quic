@@ -1,4 +1,4 @@
-FROM alpine:3.19.1 as build
+FROM alpine:3.20.0 as build
 ARG BUILD
 
 ARG LUAJIT_INC=/usr/include/luajit-2.1
@@ -69,7 +69,7 @@ RUN cd /src/nginx && \
     cd /src/lua-resty-lrucache && \
     make install PREFIX=/usr/local/nginx
 
-FROM alpine:3.19.1
+FROM alpine:3.20.0
 COPY --from=build /usr/local/nginx /usr/local/nginx
 RUN apk add --no-cache ca-certificates tzdata zlib luajit pcre libstdc++ yajl libxml2 libxslt perl lua5.1-libs && \
     ln -sf /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
