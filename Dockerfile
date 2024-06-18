@@ -80,8 +80,10 @@ RUN wget -q https://nginx.org/download/nginx-"$NGINX_VER".tar.gz -O - | tar xzC 
     --add-module=/src/ngx_brotli \
     --add-module=/src/headers-more-nginx-module \
     --add-module=/src/njs/nginx \
-    --add-module=/src/lua-nginx-module && \
+    --add-module=/src/lua-nginx-module
+
     # Build & Install
+RUN cd /src/nginx && \
     make -j "$(nproc)" && \
     make -j "$(nproc)" install && \
     strip -s /usr/local/nginx/sbin/nginx
