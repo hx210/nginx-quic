@@ -58,7 +58,7 @@ jobs:
           images: ${{ env.full_image_name }}
 
       - name: Set Up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: Set Up Docker Buildx
         uses: docker/setup-buildx-action@v2
