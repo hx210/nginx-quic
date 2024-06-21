@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:labs
-FROM alpine:3.20.0 as build
+FROM alpine:3.20.1 as build
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 ARG LUAJIT_INC=/usr/include/luajit-2.1
@@ -88,7 +88,7 @@ RUN cd /src/nginx && \
     make -j "$(nproc)" install && \
     strip -s /usr/local/nginx/sbin/nginx
 
-FROM alpine:3.20.0
+FROM alpine:3.20.1
 COPY --from=build /usr/local/nginx                               /usr/local/nginx
 RUN apk upgrade --no-cache -a && \
     apk add --no-cache ca-certificates tzdata zlib luajit pcre2 libstdc++ yajl libxml2 libxslt libcurl lmdb libfuzzy2 lua5.1-libs geoip libmaxminddb-libs && \
